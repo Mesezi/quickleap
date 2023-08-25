@@ -23,7 +23,9 @@ const Hero = () => {
   return (
     <section className='hero'>
         <img src={fruitImage} alt="" />
-        <form onSubmit={submitForm}>
+
+<section >
+<form onSubmit={submitForm}>
             <h3>Let's start by confirming if we currently deliver to your area</h3>
             <input type="text" placeholder='Email Address or Phone number' required/>
             <div>
@@ -38,6 +40,9 @@ const Hero = () => {
            </button>
 
         </form>
+</section>
+
+        
     </section>
   )
 }

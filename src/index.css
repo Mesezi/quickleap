@@ -16,6 +16,15 @@ body{
 
 }
 
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+html{
+  font-size: 13px;
+}
+
 ul{
   list-style: none;
 }
@@ -33,6 +42,25 @@ button{
   gap: 1rem;
 }
 
+.menu-btn{
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  width: 2rem;
+  margin-left: 1rem;
+  background-color: rgb(0, 0, 0,0);
+  border: 0;
+  outline: 0;
+  justify-content: center;
+}
+
+.menu-btn span{
+height: 2px;
+width: 100%;
+background-color: var(--main-green);
+background-color: black;
+}
+
 .dashboard img{
   height: 5rem;
 }
@@ -48,15 +76,18 @@ button{
 }
 
 header{
-  padding: 1rem 5rem;
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  position: sticky;
-  top: 0;
+  box-shadow: 20px 0 20px rgb(0, 0, 0,.1);
   z-index: 99;
   background-color: white;
-  box-shadow: 20px 0 20px rgb(0, 0, 0,.1);
+  position: sticky;
+  top: 0;
+}
+
+header > div{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 
@@ -64,11 +95,12 @@ header img{
   height: 3rem;
 }
 
-header > form{
+header form{
   display: flex;
   gap: 1rem;
   height: 3rem;
   flex-grow: 1;
+  max-width: 30rem;
 }
 
 header form div{
@@ -85,10 +117,11 @@ header form button{
 background-color: var(--main-green);
  border: 0;
 outline: 0; 
-padding: 0 20px;
+padding: 0 1rem;
 text-transform: uppercase;
 color: white;
 border-radius: 5px;
+font-size: .8rem;
 }
 
 header input{
@@ -107,7 +140,7 @@ header > img{
 }
 
 header ul{
-  display: flex;
+  display: none;
   gap: 2rem;
   list-style: none;
   font-size: .9rem;
@@ -122,10 +155,21 @@ header ul li{
 
 .hero{
   height: 90vh;
+  margin-bottom: 5rem;
+}
+
+.hero > section{
   position: relative;
   display: grid;
   place-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0,.5);
+  padding: 1rem;
 }
+
+
 
 .hero > img{
   position: absolute;
@@ -135,7 +179,7 @@ header ul li{
   filter: brightness(90%);
 }
 
-.hero > form{
+.hero form{
   position: relative;
   z-index: 10;
   max-width: 550px;
@@ -144,7 +188,7 @@ header ul li{
   border-radius: .5rem;
 }
 
-.hero > form h3{
+.hero form h3{
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -159,12 +203,12 @@ header ul li{
   outline: none;
 }
 
-.hero > form > input:nth-of-type(1){
+.hero  form > input:nth-of-type(1){
   border: var(--main-green) 1.8px solid;
   margin: .7rem 0;
 }
 
-.hero > form > div{
+.hero  form > div{
   border: var(--main-green) 1.8px solid;
   border-radius: .3rem;
   display: flex;
@@ -172,7 +216,7 @@ header ul li{
   align-items: center;
 }
 
-.hero > form > div img{
+.hero  form > div img{
   object-fit: contain;
   height: 1rem;
 }
@@ -190,7 +234,7 @@ header ul li{
 
 
 .how_it_works{
-  padding: 5rem 5rem;
+  padding: 5rem 1.5rem;
 }
 
 .how_it_works > div{
@@ -203,7 +247,7 @@ header ul li{
 .how_it_works > article{
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   margin-top: 2rem;
 }
 
@@ -233,27 +277,32 @@ header ul li{
   font-size: .9rem;
 }
 
-.benefits{
-  padding: 5rem 5rem;
+.benefits {
+  padding: 5rem 1.5rem;
   background-color:  #F4FFF7;
   ;
+}
+
+.benefits > section{
   display: flex;
+  flex-direction: column;
   gap: 3rem;
 }
 
 
 
-.benefits > article{
-  width: 50%;
+.benefits > section > article{
+  width: 100%;
   padding: 2rem 0;
 }
 
-.benefits > div{
+.benefits > section > div{
   position: relative;
   flex-grow: 1;
+  height: 30rem;
 }
 
-.benefits > div > img{
+.benefits > section > div > img{
   height: 100%;
   width: 100%;
   position: absolute;
@@ -283,21 +332,29 @@ header ul li{
 }
 
 .products{
-padding: 5rem;
+padding: 5rem 1.5rem;
 }
 
 .products h2{
   text-align: center;
 }
 
-.products > article{
+.products  .swiper-pagination-bullet-active{
+background-color: var(--main-green);
+}
+
+.products .swiper-wrapper{
+  padding-bottom: 3rem;
+}
+
+.products article{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
-.products > article > div{
+.products article > div{
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -307,7 +364,7 @@ padding: 5rem;
 }
 
 
-.products > article img{
+.products article img{
   height: 10rem;
   object-fit: cover;
   width: 100%;
@@ -325,31 +382,11 @@ padding: 5rem;
   font-size: .9rem;
 }
 
-.products > div{
-  display: flex;
-  gap: .5rem;
-  justify-content: center;
-  margin-top: 3rem;
-  align-items: center;
-}
-
-.products > div span{
-  height: .5rem;
-  width: .5rem;
-  background-color: var(--gray);
-  border-radius: 100%;
-}
-
-.products > div span:nth-of-type(1){
-  height: .65rem;
-  width: .65rem;
-  background-color: var(--main-green);
-}
 
 .customer_reviews{
-  overflow: hidden;
   position: relative;
-  height: 45rem;
+  overflow: hidden;
+  height: 70rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,7 +395,7 @@ padding: 5rem;
 
 
 .customer_reviews article{
-  padding: 2rem 5rem;
+  padding: 2rem 1rem;
 }
 
 .customer_reviews article > h3{
@@ -371,14 +408,19 @@ padding: 5rem;
   margin-top: .5rem;
 }
 
+.wave{
+  height: 8rem;
+}
+
 
 .wave:nth-of-type(1){
   position: absolute;
   top: 0;
+  transform: scaleX(2);
 }
 
 .rotate{
-  transform: rotate(180deg) ;
+  transform: rotate(180deg) scaleX(2) ;
 }
 
 .wave:nth-of-type(2){
@@ -388,7 +430,7 @@ padding: 5rem;
 
 .reviews{
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 1fr;
 gap: 2rem;
 margin-top: 3rem;
 }
@@ -423,7 +465,7 @@ margin-top: 3rem;
 
 .faq{
   background-color: #F4FFF7;
-  padding: 5rem;
+  padding: 5rem 1.5rem;
 }
 
 .faq > h3{
@@ -450,21 +492,52 @@ margin-top: 3rem;
   border-radius: 8px;
   padding: 1rem;
   border: #B1B1B1 1px solid;
-  display: flex;
-  justify-content: space-between;
   font-size: .9rem;
   color: var(--main-green);
   font-weight: 600;
 }
 
+.faq button{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .9rem;
+  background-color: rgb(0, 0, 0,0);
+  border: none;
+  outline: none;
+  color: var(--main-green);
+  font-weight: 600;
+  text-align: start;
+}
+
+/* .faq .dropdown{
+  transition: ease-in-out 200ms;
+} */
+
+.faq .content p{
+  margin: 1rem 0 0 0;
+}
+
+.faq .content{
+  height: 0;
+  overflow: hidden;
+  transition: ease-in-out 200ms;
+}
+
+.faq .dropdown.show .content{
+  height: 100%;
+}
+
 .get_started{
-  padding: 5rem;
+  padding: 5rem 1.5rem;
 }
 
 .get_started > article{
   background-color: #115400;
   padding: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 3rem;
   border-radius: 10px;
@@ -503,7 +576,7 @@ margin-top: 3rem;
 
 footer{
   margin-top: 3rem;
-  padding: 0 5rem;
+  padding: 1.5rem;
 }
 
 footer > section > img{
@@ -515,15 +588,16 @@ footer > section > img{
 
 footer > section:nth-of-type(1){
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 footer > section:nth-of-type(1) h5{
  font-size: 1.9rem;
  color: #6C6C6C;
- max-width: 60%;
- padding: 2rem 0;
 }
+
+
 
 
 footer form{
@@ -559,12 +633,16 @@ footer button{
 footer > section:nth-of-type(2){
   display: flex;
   padding: 3rem 0;
+  flex-direction: column;
   border-bottom: 1px solid #6C6C6C;
   border-top: 1px solid #6C6C6C;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .list_section{
 display: flex;
+flex-direction: column;
 gap: 3rem;
 }
 
@@ -575,7 +653,7 @@ gap: 3rem;
 }
 
 .list_section ul{
-  font-size: .8rem;
+  font-size: 1rem;
   color: #626262;
   margin-top: 1.2rem;
   display: flex;
@@ -593,4 +671,99 @@ gap: 3rem;
   font-size: .8rem;
   font-weight: 600;
   margin: 1rem 0;
+}
+
+#searchText{
+  display: none;
+}
+
+#searchIcon{
+  display: block;
+}
+
+@media(min-width:640px) and (max-width:1023px){
+  html{
+    font-size: 15px;
+  }
+
+  
+}
+
+@media(min-width: 1024px){
+  html{
+    font-size: 17px;
+  }
+
+  header ul{
+  display: flex;
+  }
+
+  #searchText{
+    display: block;
+  }
+  
+  #searchIcon{
+    display: none;
+  }
+
+  header > div{
+    gap: 4rem;
+  }
+
+  .how_it_works > article{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .products article{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .benefits > section{
+    flex-direction: row;
+  }
+  
+  
+  
+  .benefits > section > article{
+    width: 50%;
+  }
+  
+  .benefits > section > div{
+    height: auto
+  }
+
+  .reviews{
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .customer_reviews{
+      height: 45rem;
+    }
+
+    .get_started > article{
+      flex-direction: row;
+    }
+
+    footer > section:nth-of-type(1){
+      align-items: center;
+      flex-direction: row;
+    }
+
+
+footer > section:nth-of-type(1) h5{
+  max-width: 60%;
+ }
+
+ footer > section:nth-of-type(2){
+  flex-direction: row;
+}
+
+.list_section{
+flex-direction: row;
+}
+ 
+ 
+
+
 }

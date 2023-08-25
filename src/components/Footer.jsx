@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='container'>
         <section>
     <h5>
     Subscribe to be the first one to know about updates from us, we only share fun stuff! 

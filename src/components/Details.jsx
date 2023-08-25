@@ -17,6 +17,13 @@ import customer from "../assets/customer.png";
 import customer2 from "../assets/customer2.png";
 import customer3 from "../assets/customer3.png";
 import shop from '../assets/shop.png'
+import Dropdown from "./Dropdown";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from "swiper/modules";
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 
 const Details = () => {
@@ -68,7 +75,8 @@ const Details = () => {
 
   return (
     <div>
-      <section className="how_it_works">
+      <section className="how_it_works container">
+        
         <div>
           <h2>How it works</h2>
           <p>
@@ -110,6 +118,7 @@ const Details = () => {
       </section>
 
       <section className="benefits">
+        <section className="container">
         <div>
         <img src={enjoy} alt="" />
         </div>
@@ -151,14 +160,24 @@ const Details = () => {
                 </li>
             </ul>
         </article>
+        </section>
+        
       </section>
 
-      <section className="products">
+      <section className="products container">
        
           <h2>Top selling products</h2>
+          
   
-
-        <article>
+          <Swiper
+    slidesPerView={1}
+    pagination={true}
+    modules={[Pagination]}
+    className="mySwiper"
+   > 
+ 
+ <SwiperSlide>
+    <article className="products-slide">
             {
                 products.map(product=> <div>
                     <img src={product.img} alt="" />
@@ -169,23 +188,79 @@ const Details = () => {
             }
          
         </article>
-        <div>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        </SwiperSlide> 
 
-            
-            </div>
+        <SwiperSlide>
+    <article className="products-slide">
+            {
+                products.map(product=> <div>
+                    <img src={product.img} alt="" />
+                    <p className="type">{product.type}</p>
+                    <h4 className="product_name">{product.name}</h4>
+                   <p className="price"><span>$1200</span>/kg</p> 
+                </div>)
+            }
+         
+        </article>
+        </SwiperSlide> 
+
+        <SwiperSlide>
+    <article className="products-slide">
+            {
+                products.map(product=> <div>
+                    <img src={product.img} alt="" />
+                    <p className="type">{product.type}</p>
+                    <h4 className="product_name">{product.name}</h4>
+                   <p className="price"><span>$1200</span>/kg</p> 
+                </div>)
+            }
+         
+        </article>
+        </SwiperSlide> 
+        
+
+          <SwiperSlide>
+    <article className="products-slide">
+            {
+                products.map(product=> <div>
+                    <img src={product.img} alt="" />
+                    <p className="type">{product.type}</p>
+                    <h4 className="product_name">{product.name}</h4>
+                   <p className="price"><span>$1200</span>/kg</p> 
+                </div>)
+            }
+         
+        </article>
+        </SwiperSlide>   
+
+        <SwiperSlide>
+    <article className="products-slide">
+            {
+                products.map(product=> <div>
+                    <img src={product.img} alt="" />
+                    <p className="type">{product.type}</p>
+                    <h4 className="product_name">{product.name}</h4>
+                   <p className="price"><span>$1200</span>/kg</p> 
+                </div>)
+            }
+         
+        </article>
+        </SwiperSlide>     
+ 
+
+   </Swiper>
+
+
+
+       
       </section>
 
       <section className="customer_reviews">
-      <svg width="1500" height="154" className="wave" viewBox="0 0 1848 154" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="wave" viewBox="0 0 1848 154" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1848 128.121L1786.58 128.121C1725.17 128.121 1601.42 128.121 1478.58 106.909C1354.83 85.697 1232 42.8486 1109.17 38.6061C985.417 34.3637 862.583 68.303 738.833 98.4242C616 128.121 493.167 154 369.417 154C246.583 154 122.833 128.121 61.4166 115.394L4.87271e-06 102.667L1.46181e-05 3.79587e-06L61.4166 8.74084e-06C122.833 1.36858e-05 246.583 2.36496e-05 369.417 3.35395e-05C493.167 4.35033e-05 616 5.33932e-05 738.833 6.32831e-05C862.583 7.32469e-05 985.417 8.31368e-05 1109.17 9.31006e-05C1232 0.000102991 1354.83 0.00011288 1478.58 0.000122844C1601.42 0.000132734 1725.17 0.000142698 1786.58 0.000147643L1848 0.000152588L1848 128.121Z" fill="#0B7A24"/>
 </svg>
 
-<article>
+<article className="container">
     <h3>Our Customer Feedback</h3>
     <p>Don't take our word for it. Trust our customers</p>
     <div className="reviews">
@@ -325,7 +400,7 @@ const Details = () => {
     </div>
 </article>
 
-<svg width="1500" height="154" viewBox="0 0 1848 154" className="rotate wave" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1848 154" className="rotate wave" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1848 128.121L1786.58 128.121C1725.17 128.121 1601.42 128.121 1478.58 106.909C1354.83 85.697 1232 42.8486 1109.17 38.6061C985.417 34.3637 862.583 68.303 738.833 98.4242C616 128.121 493.167 154 369.417 154C246.583 154 122.833 128.121 61.4166 115.394L4.87271e-06 102.667L1.46181e-05 3.79587e-06L61.4166 8.74084e-06C122.833 1.36858e-05 246.583 2.36496e-05 369.417 3.35395e-05C493.167 4.35033e-05 616 5.33932e-05 738.833 6.32831e-05C862.583 7.32469e-05 985.417 8.31368e-05 1109.17 9.31006e-05C1232 0.000102991 1354.83 0.00011288 1478.58 0.000122844C1601.42 0.000132734 1725.17 0.000142698 1786.58 0.000147643L1848 0.000152588L1848 128.121Z" fill="#0B7A24"/>
 </svg>
 
@@ -337,39 +412,18 @@ const Details = () => {
     <p>What you need to know about. Grow for life</p>
 
     <article>
-        <div>
-            <p>What is Grow for Life?</p>
-            <svg width="14" height="14" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 17.3001C11.3 17.3001 10.6 17.0301 10.07 16.5001L3.54999 9.98014C3.25999 9.69014 3.25999 9.21014 3.54999 8.92014C3.83999 8.63014 4.31999 8.63014 4.60999 8.92014L11.13 15.4401C11.61 15.9201 12.39 15.9201 12.87 15.4401L19.39 8.92014C19.68 8.63014 20.16 8.63014 20.45 8.92014C20.74 9.21014 20.74 9.69014 20.45 9.98014L13.93 16.5001C13.4 17.0301 12.7 17.3001 12 17.3001Z" fill="#1B1B1B"/>
-</svg>
-        </div>
 
-        <div>
-            <p>Is my Membership truly free?</p>
-            <svg width="14" height="14" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 17.3001C11.3 17.3001 10.6 17.0301 10.07 16.5001L3.54999 9.98014C3.25999 9.69014 3.25999 9.21014 3.54999 8.92014C3.83999 8.63014 4.31999 8.63014 4.60999 8.92014L11.13 15.4401C11.61 15.9201 12.39 15.9201 12.87 15.4401L19.39 8.92014C19.68 8.63014 20.16 8.63014 20.45 8.92014C20.74 9.21014 20.74 9.69014 20.45 9.98014L13.93 16.5001C13.4 17.0301 12.7 17.3001 12 17.3001Z" fill="#1B1B1B"/>
-</svg>
-        </div>
+        <Dropdown heading={'What is Grow for Life?'}/> 
+        <Dropdown heading={'Is my Membership truly free?'}/>
+        <Dropdown heading={'What happens if I run out of the items on my Shopping list before the end of the Month?'}/>
+        <Dropdown heading={'Can I cancel my subscription?'}/>
 
-        <div>
-            <p>What happens if I run out of the items on my Shopping list before the end of the Month?</p>
-            <svg width="14" height="14" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 17.3001C11.3 17.3001 10.6 17.0301 10.07 16.5001L3.54999 9.98014C3.25999 9.69014 3.25999 9.21014 3.54999 8.92014C3.83999 8.63014 4.31999 8.63014 4.60999 8.92014L11.13 15.4401C11.61 15.9201 12.39 15.9201 12.87 15.4401L19.39 8.92014C19.68 8.63014 20.16 8.63014 20.45 8.92014C20.74 9.21014 20.74 9.69014 20.45 9.98014L13.93 16.5001C13.4 17.0301 12.7 17.3001 12 17.3001Z" fill="#1B1B1B"/>
-</svg>
-        </div>
-
-        <div>
-            <p>Can I cancel my subscription?</p>
-            <svg width="14" height="14" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 17.3001C11.3 17.3001 10.6 17.0301 10.07 16.5001L3.54999 9.98014C3.25999 9.69014 3.25999 9.21014 3.54999 8.92014C3.83999 8.63014 4.31999 8.63014 4.60999 8.92014L11.13 15.4401C11.61 15.9201 12.39 15.9201 12.87 15.4401L19.39 8.92014C19.68 8.63014 20.16 8.63014 20.45 8.92014C20.74 9.21014 20.74 9.69014 20.45 9.98014L13.93 16.5001C13.4 17.0301 12.7 17.3001 12 17.3001Z" fill="#1B1B1B"/>
-</svg>
-        </div>
     </article>
       </section>
 
       <section className="get_started">
 
-        <article>
+        <article className="container">
             <img src={shop} alt="" />
             <div>
                 <h4>Get started today!</h4>
